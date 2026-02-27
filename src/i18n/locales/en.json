@@ -1,0 +1,29 @@
+{
+	"app": {
+		"title": "Discover the world's most unusual holidays"
+	},
+	"nav": {
+		"random": "Random",
+		"upcoming": "Upcoming"
+	},
+	"holiday": {
+		"celebrationDay": "Celebration Day",
+		"international": "International",
+		"noHolidaysFound": "No holidays found for this date."
+	},
+	"footer": {
+		"copyright": "All rights reserved.",
+		"privacyPolicy": "Privacy Policy"
+	},
+	"error": {
+		"title": "Unable to Load Content",
+		"fetchFailed": "We're experiencing difficulties retrieving holiday information at this time. Please check your connection and try again.",
+		"connectionError": "Unable to establish a connection to the server. Please verify your internet connection and try again.",
+		"databaseError": "An error occurred while accessing the holiday database. Our team has been notified and is working to resolve this issue."
+	},
+	"notFound": {
+		"title": "Page Not Found",
+		"message": "The page you are looking for does not exist or has been moved. Please check the URL or return to the home page.",
+		"goHome": "Go to Home Page"
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"app": {
+		"title": "Odkryj najniezwyklejsze święta świata"
+	},
+	"nav": {
+		"random": "Losowe",
+		"upcoming": "Nadchodzące"
+	},
+	"holiday": {
+		"celebrationDay": "Dzień Celebracji",
+		"international": "Międzynarodowe",
+		"noHolidaysFound": "Nie znaleziono świąt na ten dzień."
+	},
+	"footer": {
+		"copyright": "Wszelkie prawa zastrzeżone.",
+		"privacyPolicy": "Polityka Prywatności"
+	},
+	"error": {
+		"title": "Nie można załadować treści",
+		"fetchFailed": "Występują trudności z pobraniem informacji o świętach. Sprawdź połączenie i spróbuj ponownie.",
+		"connectionError": "Nie można nawiązać połączenia z serwerem. Sprawdź połączenie internetowe i spróbuj ponownie.",
+		"databaseError": "Wystąpił błąd podczas dostępu do bazy danych świąt. Nasz zespół został powiadomiony i pracuje nad rozwiązaniem problemu."
+	},
+	"notFound": {
+		"title": "Strona nie znaleziona",
+		"message": "Strona, której szukasz, nie istnieje lub została przeniesiona. Sprawdź adres URL lub wróć do strony głównej.",
+		"goHome": "Przejdź do strony głównej"
+	}
+}

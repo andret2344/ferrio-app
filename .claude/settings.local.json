@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls /c/Users/Andret2344/PhpstormProjects/ferrio-app/src/types/ && cat /c/Users/Andret2344/PhpstormProjects/ferrio-app/src/types/*.ts 2>/dev/null)",
+      "Bash(echo lib dir empty or no ts files:*)",
+      "Bash(curl:*)",
+      "Bash(cd /c/Users/Andret2344/PhpstormProjects/ferrio-app && yarn install 2>&1)",
+      "Bash(head:*)",
+      "Bash(tail:*)"
+    ]
+  }
+}
