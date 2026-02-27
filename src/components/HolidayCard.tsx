@@ -31,13 +31,19 @@ export function HolidayCard(props: HolidayCardProps): React.ReactElement {
 		if (!props.holiday.description) {
 			return <></>;
 		}
-		return <p className='text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed'>
-			{props.holiday.description}
-		</p>;
+		const paragraphs = props.holiday.description.split('\n').filter(p => p.trim() !== '');
+
+		function renderParagraph(paragraph: string, index: number): React.ReactElement {
+			return <p key={index} className='text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed'>
+				{paragraph}
+			</p>;
+		}
+
+		return <div className='flex flex-col gap-3'>{paragraphs.map(renderParagraph)}</div>;
 	}
 
 	return (
-		<div className='bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl p-8 md:p-12 mb-6 sm:mb-8 border border-gray-100 dark:border-gray-700 hover:shadow-3xl transition-shadow duration-300'>
+		<div className='bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl px-10 py-8 md:px-14 md:py-12 mb-6 sm:mb-8 border border-gray-100 dark:border-gray-700 hover:shadow-3xl transition-shadow duration-300'>
 			<h2 className='text-xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white wrap-break-word mb-3'>
 				{props.holiday.name}
 			</h2>
