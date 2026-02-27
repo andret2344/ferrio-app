@@ -1,4 +1,5 @@
 import {useTranslation} from 'react-i18next';
+import {Link} from 'react-router-dom';
 import * as React from 'react';
 
 export function Footer(): React.ReactElement {
@@ -12,12 +13,12 @@ export function Footer(): React.ReactElement {
 					<p className='text-center sm:text-left'>
 						&copy; {currentYear} Ferrio. {t('footer.copyright')}
 					</p>
-					<a
-						href='/privacy'
+					<Link
+						to='/privacy'
 						className='hover:text-orange-600 dark:hover:text-orange-400 transition-colors duration-200 font-medium'
 					>
 						{t('footer.privacyPolicy')}
-					</a>
+					</Link>
 				</div>
 			</div>
 		</footer>

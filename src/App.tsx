@@ -2,8 +2,10 @@ import {useEffect, useState} from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Footer} from './components/Footer';
 import {Navbar} from './components/Navbar';
+import {ScrollToTop} from './components/ScrollToTop';
 import {Home} from './pages/Home';
 import {NotFound} from './pages/NotFound';
+import {PrivacyPolicy} from './pages/PrivacyPolicy';
 import {RandomHoliday} from './pages/RandomHoliday';
 import {Upcoming} from './pages/Upcoming';
 import * as React from 'react';
@@ -53,6 +55,7 @@ function App() {
 function AppContent({isDark, onToggleTheme}: {isDark: boolean; onToggleTheme: () => void}): React.ReactElement {
 	return (
 		<div className='min-h-screen bg-linear-to-br from-amber-50 via-orange-50 to-rose-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300'>
+			<ScrollToTop />
 			<Navbar
 				isDark={isDark}
 				onToggleTheme={onToggleTheme}
@@ -71,6 +74,10 @@ function AppContent({isDark, onToggleTheme}: {isDark: boolean; onToggleTheme: ()
 					<Route
 						path='/upcoming'
 						element={<Upcoming />}
+					/>
+					<Route
+						path='/privacy'
+						element={<PrivacyPolicy />}
 					/>
 					<Route
 						path='*'
