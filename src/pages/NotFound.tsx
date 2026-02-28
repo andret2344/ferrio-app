@@ -1,7 +1,7 @@
+import * as React from 'react';
 import {useTranslation} from 'react-i18next';
 import {Link} from 'react-router-dom';
 import {AlertCircle, Home} from 'lucide-react';
-import * as React from 'react';
 
 export function NotFound(): React.ReactElement {
 	const {t} = useTranslation();

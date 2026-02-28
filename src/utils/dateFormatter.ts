@@ -1,11 +1,11 @@
-type Language = 'en' | 'pl';
+export type Language = 'en' | 'pl';
 
 function getDaySuffix(day: number): string {
 	if (day > 3 && day < 21) {
 		return 'th';
 	}
 
-	const lastDigit = day % 10;
+	const lastDigit: number = day % 10;
 
 	if (lastDigit === 1) {
 		return 'st';
@@ -23,8 +23,8 @@ function getDaySuffix(day: number): string {
 }
 
 function formatEnglishDate(date: Date): string {
-	const day = date.getDate();
-	const months = [
+	const day: number = date.getDate();
+	const months: string[] = [
 		'January',
 		'February',
 		'March',
@@ -38,14 +38,14 @@ function formatEnglishDate(date: Date): string {
 		'November',
 		'December'
 	];
-	const suffix = getDaySuffix(day);
+	const suffix: string = getDaySuffix(day);
 
 	return `${day}${suffix} of ${months[date.getMonth()]}`;
 }
 
 function formatPolishDate(date: Date): string {
-	const day = date.getDate();
-	const months = [
+	const day: number = date.getDate();
+	const months: string[] = [
 		'stycznia',
 		'lutego',
 		'marca',
@@ -71,6 +71,12 @@ export function formatDate(date: Date, language: Language): string {
 	return formatEnglishDate(date);
 }
 
-export function getCurrentDate(language: Language): string {
-	return formatDate(new Date(), language);
+export function formatMonthDay(day: number, month: number, language: Language): string {
+	if (month === 2 && day > 28) {
+		if (language === 'pl') {
+			return `${day} lutego`;
+		}
+		return `${day}${getDaySuffix(day)} of February`;
+	}
+	return formatDate(new Date(new Date().getFullYear(), month - 1, day), language);
 }

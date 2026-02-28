@@ -3,13 +3,16 @@
 		"title": "Discover the world's most unusual holidays"
 	},
 	"nav": {
-		"random": "Random",
+		"today": "Today",
 		"upcoming": "Upcoming"
 	},
 	"holiday": {
 		"celebrationDay": "Celebration Day",
 		"international": "International",
-		"noHolidaysFound": "No holidays found for this date."
+		"noHolidaysFound": "No holidays found for this date.",
+		"learnMore": "Learn more",
+		"unusual": "Unusual",
+		"usual": "Usual"
 	},
 	"footer": {
 		"copyright": "All rights reserved.",
@@ -20,6 +23,17 @@
 		"fetchFailed": "We're experiencing difficulties retrieving holiday information at this time. Please check your connection and try again.",
 		"connectionError": "Unable to establish a connection to the server. Please verify your internet connection and try again.",
 		"databaseError": "An error occurred while accessing the holiday database. Our team has been notified and is working to resolve this issue."
+	},
+	"upcoming": {
+		"today": "Today",
+		"daysAgo_one": "1 day ago",
+		"daysAgo_other": "{{count}} days ago",
+		"inDays_one": "In 1 day",
+		"inDays_other": "In {{count}} days",
+		"prevWeek": "Previous Week",
+		"nextWeek": "Next Week",
+		"prev": "Prev",
+		"next": "Next"
 	},
 	"notFound": {
 		"title": "Page Not Found",

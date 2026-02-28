@@ -1,5 +1,5 @@
-import {useTranslation} from 'react-i18next';
 import * as React from 'react';
+import {useTranslation} from 'react-i18next';
 
 export function Header(): React.ReactElement {
 	const {t} = useTranslation();

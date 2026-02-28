@@ -6,6 +6,6 @@ export interface FerrioHoliday {
 	readonly usual: boolean;
 	readonly description: string;
 	readonly country: string | null;
-	readonly url: string;
+	readonly url: string | null;
 	readonly mature_content: boolean;
 }

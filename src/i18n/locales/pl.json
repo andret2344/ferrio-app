@@ -3,13 +3,16 @@
 		"title": "Odkryj najbardziej niezwykłe święta na świecie"
 	},
 	"nav": {
-		"random": "Losowe",
+		"today": "Dzisiaj",
 		"upcoming": "Nadchodzące"
 	},
 	"holiday": {
 		"celebrationDay": "Dzień Celebracji",
 		"international": "Międzynarodowe",
-		"noHolidaysFound": "Nie znaleziono świąt na ten dzień."
+		"noHolidaysFound": "Nie znaleziono świąt na ten dzień.",
+		"learnMore": "Dowiedz się więcej",
+		"unusual": "Nietypowe",
+		"usual": "Typowe"
 	},
 	"footer": {
 		"copyright": "Wszelkie prawa zastrzeżone.",
@@ -20,6 +23,17 @@
 		"fetchFailed": "Występują trudności z pobraniem informacji o świętach. Sprawdź połączenie i spróbuj ponownie.",
 		"connectionError": "Nie można nawiązać połączenia z serwerem. Sprawdź połączenie internetowe i spróbuj ponownie.",
 		"databaseError": "Wystąpił błąd podczas dostępu do bazy danych świąt. Nasz zespół został powiadomiony i pracuje nad rozwiązaniem problemu."
+	},
+	"upcoming": {
+		"today": "Dzisiaj",
+		"daysAgo_one": "1 dzień temu",
+		"daysAgo_other": "{{count}} dni temu",
+		"inDays_one": "Za 1 dzień",
+		"inDays_other": "Za {{count}} dni",
+		"prevWeek": "Poprzedni tydzień",
+		"nextWeek": "Następny tydzień",
+		"prev": "Wstecz",
+		"next": "Dalej"
 	},
 	"notFound": {
 		"title": "Strona nie znaleziona",

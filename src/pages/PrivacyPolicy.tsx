@@ -1,6 +1,6 @@
+import * as React from 'react';
 import {useTranslation} from 'react-i18next';
 import {Shield} from 'lucide-react';
-import * as React from 'react';
 
 const sectionTitleClass = 'text-base font-bold text-orange-600 dark:text-orange-400 mb-3';
 const paraClass = 'text-sm text-gray-700 dark:text-gray-300 leading-relaxed';

@@ -1,23 +1,20 @@
+import * as React from 'react';
 import {useTranslation} from 'react-i18next';
 import {AlertCircle} from 'lucide-react';
-import * as React from 'react';
 
 interface ErrorMessageProps {
 	readonly message?: string;
 }
 
-function getDisplayMessage(message: string | undefined, defaultMessage: string): string {
-	if (message) {
-		return message;
-	}
-	return defaultMessage;
-}
-
 export function ErrorMessage(props: ErrorMessageProps): React.ReactElement {
 	const {t} = useTranslation();
 
-	const defaultMessage = t('error.fetchFailed', 'Failed to load holidays. Please try again later.');
-	const displayMessage = getDisplayMessage(props.message, defaultMessage);
+	function getDisplayMessage(): string {
+		if (props.message) {
+			return props.message;
+		}
+		return t('error.fetchFailed', 'Failed to load holidays. Please try again later.');
+	}
 
 	return (
 		<div className='flex items-center justify-center px-4 py-6'>
@@ -30,7 +27,9 @@ export function ErrorMessage(props: ErrorMessageProps): React.ReactElement {
 						{t('error.title', 'Oops!')}
 					</h3>
 				</div>
-				<p className='text-sm sm:text-base text-red-800 dark:text-red-300 leading-relaxed'>{displayMessage}</p>
+				<p className='text-sm sm:text-base text-red-800 dark:text-red-300 leading-relaxed'>
+					{getDisplayMessage()}
+				</p>
 			</div>
 		</div>
 	);

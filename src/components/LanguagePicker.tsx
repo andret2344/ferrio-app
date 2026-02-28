@@ -1,21 +1,19 @@
-import {useTranslation} from 'react-i18next';
 import * as React from 'react';
-
-function getLanguageClasses(isActive: boolean): string {
-	const baseClasses = 'font-medium transition-colors duration-200';
-
-	if (isActive) {
-		return `${baseClasses} text-orange-600 dark:text-orange-400 text-base`;
-	}
-
-	return `${baseClasses} text-gray-400 dark:text-gray-500 hover:text-orange-600 dark:hover:text-orange-400 text-sm`;
-}
+import {useTranslation} from 'react-i18next';
 
 export function LanguagePicker(): React.ReactElement {
 	const {i18n} = useTranslation();
 
-	function changeLanguage(language: string) {
+	function changeLanguage(language: string): void {
 		i18n.changeLanguage(language);
+	}
+
+	function getLanguageClasses(isActive: boolean): string {
+		const baseClasses = 'font-medium transition-colors duration-200';
+		if (isActive) {
+			return `${baseClasses} text-orange-600 dark:text-orange-400 text-base`;
+		}
+		return `${baseClasses} text-gray-400 dark:text-gray-500 hover:text-orange-600 dark:hover:text-orange-400 text-sm`;
 	}
 
 	const baseLang = i18n.language.split('-')[0];

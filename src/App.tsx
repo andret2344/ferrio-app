@@ -1,14 +1,14 @@
+import * as React from 'react';
 import {useEffect, useState} from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
+import {DayWrapper} from './components/DayWrapper';
 import {Footer} from './components/Footer';
 import {Navbar} from './components/Navbar';
 import {ScrollToTop} from './components/ScrollToTop';
-import {Home} from './pages/Home';
 import {NotFound} from './pages/NotFound';
 import {PrivacyPolicy} from './pages/PrivacyPolicy';
-import {RandomHoliday} from './pages/RandomHoliday';
 import {Upcoming} from './pages/Upcoming';
-import * as React from 'react';
+import {todayPath} from './utils/todayPath';
 
 function getSavedTheme(): boolean {
 	const savedTheme = localStorage.getItem('theme');
@@ -26,13 +26,8 @@ function applyTheme(isDark: boolean): void {
 	}
 }
 
-function App() {
-	const [isDark, setIsDark] = useState(false);
-
-	useEffect(() => {
-		const shouldBeDark = getSavedTheme();
-		setIsDark(shouldBeDark);
-	}, []);
+function App(): React.ReactElement {
+	const [isDark, setIsDark] = useState<boolean>(getSavedTheme);
 
 	useEffect(() => {
 		applyTheme(isDark);
@@ -44,50 +39,55 @@ function App() {
 
 	return (
 		<BrowserRouter>
-			<AppContent
-				isDark={isDark}
-				onToggleTheme={toggleTheme}
-			/>
-		</BrowserRouter>
-	);
-}
+			<div className='min-h-screen bg-linear-to-br from-amber-50 via-orange-50 to-rose-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300'>
+				<ScrollToTop />
+				<Navbar
+					isDark={isDark}
+					onToggleTheme={toggleTheme}
+				/>
 
-function AppContent({isDark, onToggleTheme}: {isDark: boolean; onToggleTheme: () => void}): React.ReactElement {
-	return (
-		<div className='min-h-screen bg-linear-to-br from-amber-50 via-orange-50 to-rose-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300'>
-			<ScrollToTop />
-			<Navbar
-				isDark={isDark}
-				onToggleTheme={onToggleTheme}
-			/>
+				<div className='container mx-auto px-4 py-6 sm:py-8 max-w-4xl pt-20 sm:pt-24'>
+					<Routes>
+						<Route
+							path='/'
+							element={
+								<Navigate
+									to={todayPath()}
+									replace
+								/>
+							}
+						/>
+						<Route
+							path='/day/:month/:day'
+							element={<DayWrapper />}
+						/>
+						<Route
+							path='/upcoming'
+							element={
+								<Navigate
+									to='/upcoming/0'
+									replace
+								/>
+							}
+						/>
+						<Route
+							path='/upcoming/:week'
+							element={<Upcoming />}
+						/>
+						<Route
+							path='/privacy'
+							element={<PrivacyPolicy />}
+						/>
+						<Route
+							path='*'
+							element={<NotFound />}
+						/>
+					</Routes>
 
-			<div className='container mx-auto px-4 py-6 sm:py-8 max-w-4xl pt-20 sm:pt-24'>
-				<Routes>
-					<Route
-						path='/'
-						element={<Home />}
-					/>
-					<Route
-						path='/random'
-						element={<RandomHoliday />}
-					/>
-					<Route
-						path='/upcoming'
-						element={<Upcoming />}
-					/>
-					<Route
-						path='/privacy'
-						element={<PrivacyPolicy />}
-					/>
-					<Route
-						path='*'
-						element={<NotFound />}
-					/>
-				</Routes>
-
-				<Footer />
+					<Footer />
+				</div>
 			</div>
-		</div>
+		</BrowserRouter>
 	);
 }
 
