@@ -1,7 +1,8 @@
 import * as React from 'react';
-import {useTranslation} from 'react-i18next';
+import {Trans, useTranslation} from 'react-i18next';
 import {Shield} from 'lucide-react';
 
+const emailLinkClass = 'text-amber-600 dark:text-amber-400 underline hover:text-amber-700 dark:hover:text-amber-300';
 const sectionTitleClass = 'text-base font-bold text-orange-600 dark:text-orange-400 mb-3';
 const paraClass = 'text-sm text-gray-700 dark:text-gray-300 leading-relaxed';
 const listClass = 'mt-2 ml-1 space-y-1.5';
@@ -11,6 +12,17 @@ const dividerClass = 'border-gray-100 dark:border-gray-700';
 
 export function PrivacyPolicy(): React.ReactElement {
 	const {t} = useTranslation();
+	const contactEmail: string = t('privacy.contactEmail');
+	const emailComponents = {
+		email: (
+			<a
+				href={`mailto:${contactEmail}`}
+				className={emailLinkClass}
+			>
+				{contactEmail}
+			</a>
+		)
+	};
 
 	return (
 		<main className='mb-16 sm:mb-20 md:mb-24'>
@@ -30,7 +42,13 @@ export function PrivacyPolicy(): React.ReactElement {
 				<section>
 					<h2 className={sectionTitleClass}>{t('privacy.s1Title')}</h2>
 					<p className={paraClass}>{t('privacy.s1p1')}</p>
-					<p className={`${paraClass} mt-1`}>{t('privacy.s1p2')}</p>
+					<p className={`${paraClass} mt-1`}>
+						<Trans
+							i18nKey='privacy.s1p2'
+							values={{contactEmail}}
+							components={emailComponents}
+						/>
+					</p>
 				</section>
 
 				<hr className={dividerClass} />
@@ -66,6 +84,7 @@ export function PrivacyPolicy(): React.ReactElement {
 					<h2 className={sectionTitleClass}>{t('privacy.s4Title')}</h2>
 					<p className={paraClass}>{t('privacy.s4p1')}</p>
 					<p className={`${paraClass} mt-1`}>{t('privacy.s4p2')}</p>
+					<p className={`${paraClass} mt-1`}>{t('privacy.s4p3')}</p>
 				</section>
 
 				<hr className={dividerClass} />
@@ -102,7 +121,13 @@ export function PrivacyPolicy(): React.ReactElement {
 				<section>
 					<h2 className={sectionTitleClass}>{t('privacy.s7Title')}</h2>
 					<p className={paraClass}>{t('privacy.s7p1')}</p>
-					<p className={`${paraClass} mt-1`}>{t('privacy.s7p2')}</p>
+					<p className={`${paraClass} mt-1`}>
+						<Trans
+							i18nKey='privacy.s7p2'
+							values={{contactEmail}}
+							components={emailComponents}
+						/>
+					</p>
 					<p className={`${paraClass} mt-1`}>{t('privacy.s7p3')}</p>
 				</section>
 

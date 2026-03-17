@@ -23,14 +23,18 @@ export async function fetchHolidaysByDate(
 		return cached.data;
 	}
 
-	const response: Response = await fetch(`${API_BASE_URL}/v3/holidays?lang=${lang}&day=${day}&month=${month}`, {signal});
+	const response: Response = await fetch(`${API_BASE_URL}/v3/holidays?lang=${lang}&day=${day}&month=${month}`, {
+		signal
+	});
 
 	if (!response.ok) {
 		throw new Error(`API request failed with status ${response.status}`);
 	}
 
 	const data: FerrioHoliday[] = await response.json();
-	const result: FerrioHoliday[] = Array.isArray(data) ? data.filter((h: FerrioHoliday): boolean => !h.mature_content) : [];
+	const result: FerrioHoliday[] = Array.isArray(data)
+		? data.filter((h: FerrioHoliday): boolean => !h.mature_content)
+		: [];
 
 	if (holidayCache.size >= CACHE_MAX_SIZE) {
 		holidayCache.clear();
